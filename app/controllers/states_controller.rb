@@ -6,13 +6,13 @@ class StatesController < ApplicationController
   def index
     @states = State.all
 
-    #render json: @states
+    render json: @states
   end
 
   # GET /states/1
   # GET /states/1.json
   def show
-    #render json: @state
+    render json: @state
   end
 
   # POST /states

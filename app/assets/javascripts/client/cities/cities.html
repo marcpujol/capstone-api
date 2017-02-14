@@ -1,0 +1,29 @@
+<div>
+  <h3>Cities <span class="small">({{citiesController.cities.length}})</span></h3>
+
+  <form>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+      <label for="name">Name:</label>
+        <input id="name" name="name" ng-model="citiesController.city.name" required="
+        required" />
+        <button ng-if="!citiesController.city.id" type="submit" ng-click="citiesController.create()">Create city</button>
+        <span ng-if="citiesController.city.id">
+          <button type="submit" ng-click="citiesController.newCity()">New city</button>
+          <button type="submit" ng-click="citiesController.update()">Update city</button>
+          <button type="submit" ng-click="citiesController.remove()">Delete city</button>
+        </span>
+        </div>
+    </div>
+  </form>
+
+
+    <table class="table table-striped">
+    <tr ng-repeat="city in citiesController.cities | orderBy: 'name'">
+      <td>
+        <a ng-click="citiesController.edit(city)">{{city.name}}</a>
+      </td>
+    </tr>
+    </table>
+
+</div>

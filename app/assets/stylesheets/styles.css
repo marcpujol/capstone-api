@@ -1,0 +1,5 @@
+* { font-family: 'Bree Serif', serif;}
+.lead, .lead * { font-family: 'Yanone Kaffeesatz', serif;}
+.label.small { font-size: .75em;}
+
+footer { margin-top:25px;}

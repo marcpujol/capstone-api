@@ -1,0 +1,41 @@
+(function() {
+  'use strict';
+
+  angular
+    .module("client")
+    .constant("client.APP_CONFIG", {
+      server_url: "<%= ENV['RAILS_API_URL'] %>",
+      states_path: "<%= asset_path('client/states/states.html') %>",
+      cities_path: "<%= asset_path('client/cities/cities.html') %>"
+    })
+    .directive("environment", EnvironmentDirective);
+
+    EnvironmentDirective.$inject = ["$location"];
+    function EnvironmentDirective($location) {
+      function getEnvironment(url){
+        var host = /^https?\:\/\/([^\/:?#]+)(?:[\/:?#]|$)/i.exec(url);
+        var env = null;
+        switch (host[1])
+        {
+            case 'mapu-capstone.herokuapp.com':
+              env = 'production';
+              break;
+            case 'mapu-capstone-staging.herokuapp.com':
+              env = 'staging';
+              break;
+            default:
+              env = 'development';
+              break;
+        }
+        return env;
+      }
+
+      var directive = {
+        template: '<span class="label small label-success">'+ getEnvironment($location.absUrl()) +'</span>',
+        replace: true,
+        restrict: "E",
+        scope: {}
+      };
+      return directive;
+    }
+}());

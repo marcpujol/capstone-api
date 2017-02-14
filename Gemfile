@@ -1,37 +1,31 @@
-#
 source 'https://rubygems.org'
 
+gem 'rails', '4.2.7'
+gem 'rails-api', '~>0.4', '>=0.4.0'
+gem 'sass-rails', '~> 5.0', '>=3.4.22'
+gem 'uglifier', '~> 3.0', '>=3.0.2'
+gem 'coffee-rails', '~> 4.1', '>= 4.1.0'
+gem 'jquery-rails', '~>4.2', '>=4.2.1'
 
-gem 'rails', '4.2.7.1'
-gem 'rails-api'
-gem 'pry-rails'
-
-# To enable CORS headers
-gem 'rack-cors', :require => 'rack/cors'
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# To use Jbuilder templates for JSON
-gem 'jbuilder'
-
-group :development, :test do
-  gem 'spring'
-  gem 'rspec-rails'
-  gem 'byebug'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap', '~>3.3', '>= 3.3.7'
+  gem 'rails-assets-angular', '~>1.5', '>= 1.5.8'
+  gem 'rails-assets-angular-ui-router', '~>0.3', '>= 0.3.1'
+  gem 'rails-assets-angular-resource', '~>1.5', '>= 1.5.8'
 end
 
 group :production do
   gem 'rails_12factor'
 end
 
-gem 'pg'
-gem 'mongoid'
+group :development, :test do
+  gem 'spring', '~>2.0', '>=2.0.0'
+  gem 'byebug'
+  gem 'rspec-rails'
+end
 
+gem 'pg', '~> 0.15'
+gem 'mongoid', '~>5.1', '>=5.1.5'
+
+gem 'rack-cors', :require => 'rack/cors'
 gem 'puma', :platforms => :ruby
-
-# Deploy with Capistrano
-# gem 'capistrano', :group => :development
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
